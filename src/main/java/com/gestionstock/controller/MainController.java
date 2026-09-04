@@ -30,9 +30,8 @@ public class MainController {
 
     @FXML
     private void afficherCategories() {
-        chargerVue("/com/gestionstock/categories.fxml");
+        chargerVue("/com/gestionstock/CategoriesView.fxml");
     }
-
     @FXML
     private void afficherFournisseurs() {
         chargerVue("/com/gestionstock/fournisseurs.fxml");

@@ -61,6 +61,9 @@ public class Categorie {
         this.description = description;
     }
 
+    public List<Produit> getProduits() {
+        return produits;
+    }
     @Override
     public String toString() {
         return "Categorie{" +
