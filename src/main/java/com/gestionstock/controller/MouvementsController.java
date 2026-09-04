@@ -127,7 +127,28 @@ public class MouvementsController {
     }
     @FXML
     private void nouveauMouvement() {
-        System.out.println("Ouverture du formulaire nouveau mouvement");
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
+                    getClass().getResource("/com/gestionstock/AddMouvementDialog.fxml")
+            );
+            javafx.scene.Parent racine = loader.load();
+
+            AddMouvementDialogController controleur = loader.getController();
+
+            javafx.stage.Stage dialogue = new javafx.stage.Stage();
+            dialogue.setTitle("Nouveau Mouvement");
+            dialogue.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            dialogue.setScene(new javafx.scene.Scene(racine));
+            dialogue.showAndWait();
+
+            if (controleur.isMouvementEnregistre()) {
+                chargerDonnees();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            afficherErreur("Erreur lors de l'ouverture du formulaire.");
+        }
     }
 
     /**

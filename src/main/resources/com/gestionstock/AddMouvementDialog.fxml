@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gestionstock.controller.AddMouvementDialogController"
+      spacing="12" prefWidth="380">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Nouveau Mouvement" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="5">
+        <Label text="Produit"/>
+        <ComboBox fx:id="comboProduit" maxWidth="Infinity" onAction="#mettreAJourApercu"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Type de mouvement"/>
+        <HBox spacing="15">
+            <fx:define>
+                <ToggleGroup fx:id="groupeType"/>
+            </fx:define>
+            <RadioButton fx:id="radioEntree" text="Entrée" toggleGroup="$groupeType" selected="true" onAction="#mettreAJourApercu"/>
+            <RadioButton fx:id="radioSortie" text="Sortie" toggleGroup="$groupeType" onAction="#mettreAJourApercu"/>
+        </HBox>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Quantité"/>
+        <TextField fx:id="champQuantite" promptText="Ex: 10" onKeyReleased="#mettreAJourApercu"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Motif"/>
+        <TextArea fx:id="champMotif" promptText="Ex: vente, perte, ajustement..." prefRowCount="2" wrapText="true"/>
+    </VBox>
+
+    <Label fx:id="labelApercu" style="-fx-font-style: italic; -fx-text-fill: #555;"/>
+
+    <Label fx:id="labelErreur" style="-fx-text-fill: red;" wrapText="true"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Annuler" onAction="#annuler"/>
+        <Button text="Enregistrer" onAction="#enregistrer" style="-fx-background-color: #2c3e50; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox>

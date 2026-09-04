@@ -1,10 +1,7 @@
 package com.gestionstock.util;
 
-import com.gestionstock.model.Utilisateur;
-import com.gestionstock.model.enums.RoleUtilisateur;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import org.mindrot.jbcrypt.BCrypt;
 
 public class InitData {
     public static void main(String[] args) {
@@ -13,12 +10,17 @@ public class InitData {
         try {
             tx.begin();
 
-            String hash = BCrypt.hashpw("password", BCrypt.gensalt());
-            Utilisateur admin = new Utilisateur("admin@test.com", "Admin Test", hash, RoleUtilisateur.ADMIN);
-            em.persist(admin);
+            em.createNativeQuery(
+                    "ALTER TABLE mouvements DROP CONSTRAINT mouvements_type_check"
+            ).executeUpdate();
+
+            em.createNativeQuery(
+                    "ALTER TABLE mouvements ADD CONSTRAINT mouvements_type_check " +
+                            "CHECK (type IN ('ENTREE', 'SORTIE'))"
+            ).executeUpdate();
 
             tx.commit();
-            System.out.println("Utilisateur admin créé avec succès !");
+            System.out.println("Contrainte corrigée avec succès !");
         } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
