@@ -34,7 +34,7 @@ public class MainController {
     }
     @FXML
     private void afficherFournisseurs() {
-        chargerVue("/com/gestionstock/fournisseurs.fxml");
+        chargerVue("/com/gestionstock/FournisseursView.fxml");
     }
 
     private void chargerVue(String cheminFxml) {
