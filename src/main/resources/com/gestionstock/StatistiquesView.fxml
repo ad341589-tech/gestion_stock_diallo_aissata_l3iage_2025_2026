@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gestionstock.controller.StatistiqueController"
+      spacing="20">
+
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <!-- Titre -->
+    <Label text="Statistiques et rapports"
+           style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+
+    <!-- Cartes statistiques -->
+    <GridPane hgap="20" vgap="20">
+
+        <!-- Nombre de produits -->
+        <VBox GridPane.columnIndex="0"
+              GridPane.rowIndex="0"
+              spacing="10"
+              prefWidth="250"
+              style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+
+            <Label text="Nombre de produits"
+                   style="-fx-font-size: 16px;"
+                   wrapText="true"/>
+
+            <Label fx:id="labelNombreProduits"
+                   text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        </VBox>
+
+
+        <!-- Nombre de mouvements -->
+        <VBox GridPane.columnIndex="1"
+              GridPane.rowIndex="0"
+              spacing="10"
+              prefWidth="250"
+              style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+
+            <Label text="Nombre de mouvements"
+                   style="-fx-font-size: 16px;"
+                   wrapText="true"/>
+
+            <Label fx:id="labelNombreMouvements"
+                   text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        </VBox>
+
+
+        <!-- Valeur totale du stock -->
+        <VBox GridPane.columnIndex="2"
+              GridPane.rowIndex="0"
+              spacing="10"
+              prefWidth="250"
+              style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+
+            <Label text="Valeur totale du stock"
+                   style="-fx-font-size: 16px;"
+                   wrapText="true"/>
+
+            <Label fx:id="labelValeurStock"
+                   text="0 FCFA"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"
+                   wrapText="true"/>
+        </VBox>
+
+
+        <!-- Produits en stock bas -->
+        <VBox GridPane.columnIndex="0"
+              GridPane.rowIndex="1"
+              spacing="10"
+              prefWidth="250"
+              style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+
+            <Label text="Produits en stock bas"
+                   style="-fx-font-size: 16px;"
+                   wrapText="true"/>
+
+            <Label fx:id="labelStockBas"
+                   text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        </VBox>
+
+
+        <!-- Total des entrées -->
+        <VBox GridPane.columnIndex="1"
+              GridPane.rowIndex="1"
+              spacing="10"
+              prefWidth="250"
+              style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+
+            <Label text="Total des entrées"
+                   style="-fx-font-size: 16px;"
+                   wrapText="true"/>
+
+            <Label fx:id="labelTotalEntrees"
+                   text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        </VBox>
+
+
+        <!-- Total des sorties -->
+        <VBox GridPane.columnIndex="2"
+              GridPane.rowIndex="1"
+              spacing="10"
+              prefWidth="250"
+              style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+
+            <Label text="Total des sorties"
+                   style="-fx-font-size: 16px;"
+                   wrapText="true"/>
+
+            <Label fx:id="labelTotalSorties"
+                   text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        </VBox>
+
+    </GridPane>
+
+</VBox>

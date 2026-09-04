@@ -39,6 +39,10 @@ public class MainController {
     private void afficherMouvements() {
         chargerVue("/com/gestionstock/MouvementsView.fxml");
     }
+    @FXML
+    private void afficherStatistiques() {
+        chargerVue("/com/gestionstock/StatistiquesView.fxml");
+    }
 
     private void chargerVue(String cheminFxml) {
         try {
