@@ -57,7 +57,7 @@ public class ProduitServiceImpl implements ProduitService {
             em.persist(p);
             em.getTransaction().commit();
         } catch (Exception e){
-            em.getTransaction().rollback(); // pour enlever ce qu'on avait insérer sur la base données
+            em.getTransaction().rollback();
             throw new RuntimeException("Erreur lors de la sauvegarde du produit");
         } finally {
             em.close();
@@ -72,7 +72,7 @@ public class ProduitServiceImpl implements ProduitService {
             em.merge(p);
             em.getTransaction().commit();
         } catch (Exception e){
-            em.getTransaction().rollback(); // pour enlever ce qu'on avait insérer sur la base données
+            em.getTransaction().rollback();
             throw new RuntimeException("Erreur lors de la modification du produit");
         } finally {
             em.close();
@@ -84,8 +84,10 @@ public class ProduitServiceImpl implements ProduitService {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             em.getTransaction().begin();
-            Optional<Produit> produitOptional = findById(id);
-            if(produitOptional.isPresent()) em.remove(produitOptional);
+            Produit produit = em.find(Produit.class, id);
+            if (produit != null) {
+                em.remove(produit);
+            }
             em.getTransaction().commit();
         } catch (Exception e){
             em.getTransaction().rollback();
