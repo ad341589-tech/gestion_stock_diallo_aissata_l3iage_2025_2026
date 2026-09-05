@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gestionstock.controller.AddProduitDialogController"
+      spacing="12" prefWidth="380">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="labelTitre" text="Nouveau Produit" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="5">
+        <Label text="Nom"/>
+        <TextField fx:id="champNom" promptText="Nom du produit"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Catégorie"/>
+        <ComboBox fx:id="comboCategorie" maxWidth="Infinity"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Fournisseur"/>
+        <ComboBox fx:id="comboFournisseur" maxWidth="Infinity"/>
+    </VBox>
+
+    <HBox spacing="10">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Prix"/>
+            <TextField fx:id="champPrix" promptText="Ex: 5000"/>
+        </VBox>
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Prix Promo (optionnel)"/>
+            <TextField fx:id="champPrixPromo" promptText="Ex: 4000"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="10">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Quantité en stock"/>
+            <TextField fx:id="champQuantiteStock" promptText="Ex: 10"/>
+        </VBox>
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Quantité minimum"/>
+            <TextField fx:id="champQuantiteMin" promptText="Ex: 5"/>
+        </VBox>
+    </HBox>
+
+    <Label fx:id="labelErreur" style="-fx-text-fill: red;" wrapText="true"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Annuler" onAction="#annuler"/>
+        <Button text="Enregistrer" onAction="#enregistrer" style="-fx-background-color: #2c3e50; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox>
